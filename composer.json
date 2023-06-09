@@ -1,0 +1,19 @@
+{
+    "name": "igwen6w/ddz",
+    "type": "project",
+    "autoload": {
+        "psr-4": {
+            "Igwen6w\\Ddz\\": "src/",
+            "Igwen6w\\Ddz\\Test\\": "tests/"
+        }
+    },
+    "authors": [
+        {
+            "name": "igwen6w",
+            "email": "igwen6w@gmail.com"
+        }
+    ],
+    "require-dev": {
+        "phpunit/phpunit": "^9.6"
+    }
+}
