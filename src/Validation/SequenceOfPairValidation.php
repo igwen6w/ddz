@@ -2,6 +2,8 @@
 
 namespace Igwen6w\Ddz\Validation;
 
+use Igwen6w\Ddz\Support\Arr;
+
 /**
  * 连续的对子
  * 至少三对
@@ -31,11 +33,7 @@ class SequenceOfPairValidation implements ValidationInterface
         // 出现的牌型
         $cards = array_keys($counts);
 
-        // 按单张顺子的规则验证，需要补足数量
-        while(count($cards) < 5) {
-            $cards[] = min($cards) - 1;
-        }
-
-        return (new SequenceValidation($cards))->passes();
+        return (new SequenceValidation(Arr::fillSizeTo5($cards)))
+            ->passes();
     }
 }

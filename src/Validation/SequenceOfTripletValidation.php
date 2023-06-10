@@ -2,6 +2,8 @@
 
 namespace Igwen6w\Ddz\Validation;
 
+use Igwen6w\Ddz\Support\Arr;
+
 /**
  * 三张的顺子
  */
@@ -27,11 +29,7 @@ class SequenceOfTripletValidation implements ValidationInterface
         // 取出单张
         $cards = array_keys($counts);
 
-        // 补充到五张
-        while(count($cards) < 5) {
-            $cards[] = min($cards) - 1;
-        }
-
-        return (new SequenceValidation($cards))->passes();
+        return (new SequenceValidation(Arr::fillSizeTo5($cards)))
+            ->passes();
     }
 }
