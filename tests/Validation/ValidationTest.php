@@ -19,10 +19,32 @@ use Igwen6w\Ddz\Validation\TripletWithSingleValidation;
 
 class ValidationTest extends \PHPUnit\Framework\TestCase
 {
-    public function testSingle()
+    /**
+     * 单张有效
+     * @var array|\int[][]
+     */
+    protected array $singleValidCards = [[3],[4],[5]];
+    /**
+     * 单张无效的牌
+     * @var array|\int[][]
+     */
+    protected array $singleNotValid = [[3,4],[3,3],[3,3,3]];
+
+    public function testSingleValid()
     {
-        $valid = new SingleValidation([1]);
-        $this->assertTrue($valid->passes());
+        foreach ($this->singleValidCards as $cards) {
+            $valid = new SingleValidation($cards);
+            $this->assertTrue($valid->passes());
+        }
+    }
+
+    public function testSingleNotValid()
+    {
+        foreach ($this->singleNotValid as $cards) {
+            $v = new SingleValidation($cards);
+            $this->assertFalse($v->passes());
+        }
+
     }
 
     public function testPair()
