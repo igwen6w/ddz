@@ -10,34 +10,12 @@ use Igwen6w\Ddz\Card\Suit\RegularSuit;
 
 class PackCards
 {
-    protected array $cards;
+    public array $cards;
 
     public function __construct()
     {
         $this->createJoker();
         $this->createRegular();
-    }
-
-    public function getCards(): array
-    {
-        return $this->cards;
-    }
-
-    public function shuffle()
-    {
-        shuffle($this->cards);
-    }
-
-    public function cut(): array
-    {
-        $array = [];
-        foreach($this->cards as $key => $card) {
-            if ($key > 50) {
-                $array[3][] = $card;
-            }
-            $array[$key % 3][] = $card;
-        }
-        return $array;
     }
 
     protected function createJoker(): void
