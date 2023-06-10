@@ -4,7 +4,6 @@ namespace Igwen6w\Ddz\Card\Rank;
 
 enum RegularRank: string implements RankInterface
 {
-    case Two = '2';
     case Three = '3';
     case Four = '4';
     case Five = '5';
@@ -17,9 +16,10 @@ enum RegularRank: string implements RankInterface
     case Queen = 'Q';
     case King = 'K';
     case Ace = 'A';
+    case Two = '2';
 
     public function level(): int
     {
-        return array_search($this, RegularRank::cases()) + 1;
+        return array_search($this, RegularRank::cases()) + 3;
     }
 }
