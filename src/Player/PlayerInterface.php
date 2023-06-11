@@ -5,25 +5,21 @@ use Igwen6w\Ddz\Room\RoomInterface;
 
 interface PlayerInterface
 {
-    public function setCards(array $cards);
 
-    /**
-     * 出牌
-     * @param array $cards
-     * @return mixed
-     */
-    public function push(array $cards);
+    // 叫
+    public function call(mixed $segments);
 
-    /**
-     * 过牌
-     * @return mixed
-     */
+    // 过
     public function pass();
 
+    // 进入房间
     public function entryRoom(RoomInterface $room);
 
+    // 离开房间
     public function leaveRoom(): bool;
 
+
+    public function setCards(array $cards);
     public function getHashId();
 
 }

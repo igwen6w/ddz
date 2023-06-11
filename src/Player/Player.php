@@ -64,14 +64,25 @@ class Player implements PlayerInterface
     }
 
     /**
-     * @inheritDoc
+     * 叫地主
+     * @param $segments
+     * @return bool
      */
-    public function push($cards)
+    public function call($segments)
+    {
+        // 像游戏进程发送请求
+        // TODO
+    }
+
+    // 玩家出牌
+    public function playCards(array $cards)
     {
         // 玩家没有这些牌
         if (! empty(array_diff($cards, $this->cards))) {
             return false;
         }
+        // 向游戏进程请求出牌
+        // TODO
         if (! $this->room->rule($cards)) {
             return false;
         }
@@ -85,5 +96,6 @@ class Player implements PlayerInterface
     public function pass()
     {
         // TODO: Implement pass() method.
+        // 向游戏进程发送 pass
     }
 }
